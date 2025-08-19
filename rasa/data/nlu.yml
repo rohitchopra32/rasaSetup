@@ -1,0 +1,34 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hi
+      - hello
+      - hey
+      - good morning
+      - good evening
+      - hey there
+
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - see you later
+      - see ya
+      - catch you later
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - what are you?
+      - who are you?
+      - are you human?
+
+  - intent: predefined_query
+    examples: |
+      - how to reset my password
+      - reset password
+      - forgot password
+      - password reset steps
+      - steps to reset password
