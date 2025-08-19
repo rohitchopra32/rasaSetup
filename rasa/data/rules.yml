@@ -1,0 +1,22 @@
+version: "3.1"
+
+rules:
+  - rule: Respond to greetings
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Bot challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: Handle predefined query with custom action
+    steps:
+      - intent: predefined_query
+      - action: action_predefined_router

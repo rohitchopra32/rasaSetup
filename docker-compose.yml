@@ -1,0 +1,44 @@
+services:
+  web:
+    build: ./app
+    container_name: django_web
+    env_file:
+      - ./.env
+    environment:
+      - DJANGO_DEBUG=${DJANGO_DEBUG:-1}
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY:-changeme}
+      - RASA_URL=${RASA_URL:-http://rasa:5005}
+    ports:
+      - "8000:8000"
+    depends_on:
+      - rasa
+    volumes:
+      - ./app:/app
+
+  rasa:
+    image: rasa/rasa:3.6.20-full
+    container_name: rasa_server
+    working_dir: /app
+    environment:
+      - RASA_TELEMETRY_ENABLED=false
+    volumes:
+      - ./rasa:/app
+    command: bash -c "rasa train --quiet && rasa run --enable-api --cors '*' --debug -p 5005"
+    ports:
+      - "5005:5005"
+    depends_on:
+      - actions
+
+  actions:
+    image: rasa/rasa-sdk:3.6.2
+    container_name: rasa_actions
+    working_dir: /app
+    volumes:
+      - ./actions:/app
+    command: ["start", "--actions", "actions"]
+    ports:
+      - "5055:5055"
+
+networks:
+  default:
+    name: rasa_django_net
