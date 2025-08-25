@@ -1,0 +1,933 @@
+version: "3.1"
+nlu:
+
+# =========================
+# 1) WANTS SETTLEMENT
+# =========================
+
+- intent: wants_settlement__plan_accepted
+  examples: |
+    - Okay, I will go ahead with this plan, but I need it in writing first.
+    - Fine, I will clear it as per this schedule, but no extra charges later.
+    - I will arrange the money; just confirm the final settlement amount.
+    - I accept the plan; please provide written confirmation.
+    - This plan works for me if everything is documented.
+    - I agree to the terms provided they are in writing.
+    - Please email the settlement letter before I proceed.
+    - I am ready to close as per your schedule.
+    - Kindly confirm there will be no hidden charges.
+    - I will follow the plan exactly as stated.
+    - I need official confirmation and then I will pay.
+    - Once I receive the letter, I will start payment.
+    - Please send the signed settlement terms to my email.
+    - I am okay with this if you lock the final figure.
+    - I will move ahead after getting the written offer.
+    - Theek hai, main plan maan raha hoon, bas letter bhej do.
+    - Plan theek hai, extra charges nahi honge na, confirm kar do.
+    - Main paisa arrange karke is hisaab se clear kar dunga.
+
+- intent: wants_settlement__wants_lower_offer
+  examples: |
+    - This amount is too high; can you reduce it? I cannot manage this figure.
+    - If you bring it down by 20%, I will arrange immediately.
+    - Others got it settled for less; why should I pay more?
+    - The settlement figure is heavy; please make it lower.
+    - Can you revise the offer to something affordable?
+    - I can pay sooner if you cut the amount a bit.
+    - Please provide a more reasonable settlement number.
+    - Reduce the amount and I will close right away.
+    - This is beyond my capacity; kindly decrease it.
+    - I am asking for a fair reduction to proceed.
+    - A smaller figure will help me pay faster.
+    - Please consider a discount due to my condition.
+    - I can’t commit unless the amount is lowered.
+    - Let us negotiate the figure to a practical level.
+    - Give me your best and final reduced quote.
+    - Ye amount bahut zyada hai, thoda kam karo please.
+    - 20% kam kar doge to abhi settle kar dunga.
+    - Itna paisa arrange karna mushkil hai, kam karo warna rehne do.
+
+- intent: wants_settlement__no_plan_discussed
+  examples: |
+    - Yes, I want to settle, but I haven't decided how much I can manage.
+    - I will settle, but let us first see the options you can give me.
+    - Tell me the possible settlement amounts; then I will confirm.
+    - I want to settle but I don't know the exact amount I can pay.
+    - First you tell me what offers are available; then I will see.
+    - Share the available plans and I will decide.
+    - Please send me all options with timelines.
+    - I need to review your settlement choices first.
+    - Once I see the amounts, I will commit.
+    - I am interested but need clarity on figures.
+    - Provide alternatives and I will pick one.
+    - I will choose after comparing the options.
+    - Let me evaluate the proposals before agreeing.
+    - Show me the ranges, and I will confirm.
+    - I want a settlement menu to decide.
+    - Haan settle karna hai, par abhi amount decide nahi hua.
+    - Pehle options batao, phir main decide karunga.
+    - Thoda details bhejo, phir confirm karta hoon.
+
+- intent: wants_settlement__old_letter_shown
+  examples: |
+    - I have the previous letter you sent; I will pay based on that.
+    - You promised this settlement last year; I want the same now.
+    - I was told a lower amount earlier; I won't pay anything extra.
+    - Please honor the old settlement letter I received.
+    - The earlier offer is what I agreed to; not this new one.
+    - I will proceed only as per the prior letter.
+    - I have written proof of the old offer; use that.
+    - Do not change the figure; stick to the earlier letter.
+    - I will not accept a revised amount beyond the old letter.
+    - The old agreement should be respected here.
+    - My expectation is the same as the previous offer.
+    - I kept that letter for this reason; please accept it.
+    - Your team confirmed the old figure; I want that.
+    - I will not pay above what the letter states.
+    - Please revalidate the earlier quoted amount.
+    - Mere paas purana letter hai, usi ke hisaab se dunga.
+    - Pichle saal jo offer diya tha, wahi chahiye.
+    - Extra paisa nahi doonga; old letter follow karo.
+
+- intent: wants_settlement__claims_lower_offer
+  examples: |
+    - Another agency told me they would settle for 50k, not 75k.
+    - I know someone in the same bank who paid less for the same loan.
+    - Your colleague promised me a lower figure earlier.
+    - I was offered a smaller settlement by a different executive.
+    - Why is your amount higher than what I was told?
+    - I received a quote that is lower than this one.
+    - My friend got a better settlement; I expect similar treatment.
+    - There was a commitment for a reduced figure before.
+    - The earlier conversation mentioned a lesser amount.
+    - I have notes showing a lower offer previously.
+    - I am only willing to pay what your team promised earlier.
+    - Please match the lower offer I got from your side.
+    - I was assured a discounted figure; honor that.
+    - I heard others paid less; please align my case.
+    - Your team had quoted a different number to me.
+    - Dusre agent ne 50k bola tha, aap 75k kyon bol rahe ho?
+    - Aapke staff ne pehle kam bola tha.
+    - Mera dost kam amount mein settle karke gaya tha.
+
+- intent: wants_settlement__talking_to_bank
+  examples: |
+    - I will only discuss with the bank, not with you.
+    - I already spoke with the bank manager and I'm waiting for their offer.
+    - You are agents; I will talk to the bank directly.
+    - I prefer to deal only with the bank officials.
+    - Please connect me to the bank, not third parties.
+    - I want confirmation from the bank directly.
+    - I will proceed after a discussion with the bank team.
+    - I will coordinate settlement only with the bank.
+    - I will not negotiate through an agency.
+    - Please ask the bank to contact me themselves.
+    - I will await a call from the bank manager.
+    - I will trust only what the bank confirms in writing.
+    - I am not comfortable dealing with intermediaries.
+    - Let me handle this directly with the bank branch.
+    - I need direct communication from the bank side.
+    - Main sirf bank ke saath baat karunga.
+    - Bank se hi final baat hogi, aap nahi.
+    - Bank manager se baat ho chuki hai, unki offer ka wait hai.
+
+- intent: wants_settlement__wants_multi_shot
+  examples: |
+    - I can't pay in one go; can I pay in three installments?
+    - If you allow monthly parts, I will start paying.
+    - I don't have lump sum money; I can pay small portions.
+    - Please provide an installment option to settle.
+    - I want to close in stages rather than one time.
+    - Allow me to break it into multiple payments.
+    - I can handle two or three instalments comfortably.
+    - A staggered plan will help me pay on time.
+    - Provide a split schedule; I will follow it.
+    - I will start if you allow a part-payment plan.
+    - My request is to pay in parts only.
+    - A flexible breakup will enable me to settle.
+    - I need a multi-shot arrangement to manage cash flow.
+    - Monthly parts are feasible, lump sum is not.
+    - Please convert this to instalments for me.
+    - Ek saath nahi ho paayega, teen part mein le lo.
+    - Monthly thoda-thoda dunga.
+    - Installment option do, turant shuru karunga.
+
+- intent: wants_settlement__cant_pay_now
+  examples: |
+    - I want to settle, but please give me two months.
+    - It is not possible right now; I need time to arrange.
+    - I can do it after my next salary bonus.
+    - I require more time before I can make the payment.
+    - I will settle once my funds are in place.
+    - I need a short extension to arrange money.
+    - I am not in a position to pay immediately.
+    - After two months, I will be able to close it.
+    - I will revert once I am financially ready.
+    - I am short on cash now; need time to arrange.
+    - Please allow me a couple of months to sort this out.
+    - I intend to settle, but not at the moment.
+    - I will commit a date after arranging finance.
+    - I am planning to settle post bonus credit.
+    - Payment now is difficult; give me breathing space.
+    - Abhi settle karna mushkil hai, 2 mahine baad karunga.
+    - Salary/bonus ke baad hi payment possible hai.
+    - Is waqt paisa nahi hai, thoda time do.
+
+- intent: wants_settlement__wants_foreclosure
+  examples: |
+    - I will pay the full amount; I don't want a settlement.
+    - I prefer to close the loan with the pending dues fully.
+    - Please give me the foreclosure figure; I will pay.
+    - I want foreclosure instead of a reduced settlement.
+    - I will complete the total outstanding and close it.
+    - Share the foreclosure statement with charges.
+    - I would like to clear the entire balance due.
+    - Kindly provide the exact foreclosure amount and date.
+    - I don't want a discount; I want full closure.
+    - I will pay everything as per bank rules.
+    - Please confirm the final foreclosure computation.
+    - I intend to foreclose at the earliest.
+    - Let me know the validity of the foreclosure quote.
+    - I will arrange full funds for closure.
+    - Please send the foreclosure NOC requirements.
+    - Main poora amount dunga, settlement nahi chahiye.
+    - Foreclosure ka figure batao.
+    - Main bank ke rules ke hisaab se pura clear karunga.
+
+- intent: wants_settlement__wants_letter_noc
+  examples: |
+    - I have already paid; why haven't you sent the NOC yet?
+    - I need the closure letter urgently for my CIBIL record.
+    - Settlement is done; please send me the confirmation.
+    - Please issue the NOC and closure documents.
+    - I require the NOC to update my credit report.
+    - Kindly share the settlement confirmation letter.
+    - Why is there a delay in sending the NOC?
+    - Please email the closure confirmation to me.
+    - I need the official letter for my records.
+    - Send the NOC and any relevant certificates.
+    - I finished payment; please complete the paperwork.
+    - Provide the acknowledgment of settlement quickly.
+    - I need CIBIL clearance; send the documents.
+    - Please dispatch the NOC as discussed.
+    - The letter is pending; kindly prioritize it.
+    - Main payment kar chuka hoon, NOC kyun nahi bheja?
+    - CIBIL ke liye closure letter chahiye.
+    - Settlement confirm karke letter bhej do.
+
+- intent: wants_settlement__past_settlement_claimed
+  examples: |
+    - I already settled this earlier; please check your records.
+    - I paid cash to your executive; why are you asking again?
+    - I cleared this last year; do not harass me.
+    - This account was closed earlier; verify your system.
+    - I finished settlement long back; stop calling.
+    - I have already made the payment; review your logs.
+    - I handed over cash earlier; it should reflect.
+    - I have proof that I settled previously.
+    - Please reconcile your data; I am already closed.
+    - I have confirmation of past settlement with me.
+    - The dues were cleared; follow up is incorrect.
+    - My account is already settled; cross-check it.
+    - I completed the payment much earlier.
+    - Kindly stop repeating; it is already done.
+    - Refer to last year's closure record for my case.
+    - Ye loan main pehle hi settle kar chuka hoon.
+    - Maine cash diya tha aapke executive ko.
+    - Pichle saal ye account band ho chuka tha.
+
+# =========================
+# 2) PTP (Promise To Pay)
+# =========================
+
+- intent: ptp__requested_payment_link
+  examples: |
+    - Please send me the payment link on SMS.
+    - Share the payment link on WhatsApp, I didn't receive it yet.
+    - I can't see any link, could you resend it?
+    - The previous link expired, please send a fresh one.
+    - I need the latest link; the old one isn't opening.
+    - Can you email the link as well for my records?
+    - Kindly provide a secure payment link so I can proceed.
+    - Please share the link again; it seems broken on my phone.
+    - Send me the UPI/payment link to complete the payment.
+    - I require the link with the correct amount embedded.
+    - Please send the app/web link with instructions to pay.
+    - Share the updated link; the last one showed an error.
+    - Send me the link with my loan number referenced.
+    - The link timed out; please generate a new one.
+    - Please share a short link I can open quickly on mobile.
+    - Link bhejo bhai, SMS ya WhatsApp pe.
+    - Purana link expire ho gaya, naya bhejna.
+    - WhatsApp pe link bhejna easy rahega.
+
+- intent: ptp__paying_today
+  examples: |
+    - I will clear the payment today evening.
+    - The money is ready; I will transfer it today.
+    - Expect the payment before 8 PM today.
+    - I will complete the payment by tonight without fail.
+    - I have arranged funds and will pay today itself.
+    - I will make the transfer after office hours today.
+    - I am processing the payment today via net banking.
+    - I will pay today once I reach home.
+    - You will receive the amount by end of day today.
+    - I will settle it today; please keep the link active.
+    - Payment will be done today; kindly confirm once received.
+    - I will send the proof after paying later today.
+    - My plan is to complete payment this evening.
+    - I will not delay; I am paying today.
+    - Please note, I will close it today.
+    - Aaj hi paisa bhej dunga.
+    - Shaam tak payment ho jayega.
+    - Salary aa gayi hai, aaj hi clear kar dunga.
+
+- intent: ptp__paying_tomorrow
+  examples: |
+    - I will make the payment tomorrow once my salary is credited.
+    - Tomorrow evening I will pay for sure.
+    - Please allow me till tomorrow morning.
+    - I will arrange and pay tomorrow without fail.
+    - You will get the amount by tomorrow night.
+    - I will do the transfer tomorrow after my bank opens.
+    - I will clear the dues tomorrow as discussed.
+    - I will complete payment tomorrow via UPI.
+    - I will share proof tomorrow after payment.
+    - Tomorrow I will settle at the earliest time possible.
+    - I will not miss tomorrow; it will be done.
+    - I need one day; payment tomorrow for sure.
+    - I will push it through tomorrow in the first half.
+    - Kindly expect payment tomorrow EOD.
+    - The payment will be executed tomorrow positively.
+    - Kal salary aayegi, kal hi de dunga.
+    - Kal evening tak payment ho jayega, tension mat lo.
+    - Kal subah transfer kar dunga.
+
+- intent: ptp__no_amount_shared
+  examples: |
+    - Yes, I will pay soon; please don't worry.
+    - I am arranging the funds and will update you.
+    - Payment is in progress; kindly allow some time.
+    - I will definitely make a payment, but give me a little time.
+    - The money will be paid, I will inform you once done.
+    - I am trying to arrange and will pay shortly.
+    - I will not ignore; payment is on the way.
+    - Please give me a few days; I will start paying.
+    - I intend to pay; please allow some buffer time.
+    - I am working on it; payment will happen soon.
+    - I will keep you posted while I arrange funds.
+    - I will manage and inform you when the payment is done.
+    - I am preparing to pay; don’t worry.
+    - I will make some payment soon, I’m arranging.
+    - Kindly wait; I am sorting my finances.
+    - Haan dunga paisa, thoda time do.
+    - Main arrange kar raha hoon, relax.
+    - Payment jaldi aa jayega.
+
+- intent: ptp__no_date_given
+  examples: |
+    - I can pay 20k, please wait for my confirmation on the date.
+    - I will arrange the money but I am not sure when I can pay.
+    - This is the amount I can manage; I will confirm the date later.
+    - I can pay this much; the date is not fixed yet.
+    - I will inform the date after arranging my finances.
+    - I can manage the amount, but I need time to decide the day.
+    - I will revert with a date once I have clarity.
+    - The date is pending; I will update you soon.
+    - I will finalize the date after checking my schedule.
+    - I need to plan the date; amount is manageable.
+    - I will confirm the exact day later this week.
+    - I will let you know the timing after salary processing.
+    - Amount is okay; date will be shared later.
+    - I will set a date once my commitments are settled.
+    - Please allow me to confirm a date shortly.
+    - Main 20k de sakta hoon, date baad mein bolunga.
+    - Kab dunga fix nahi hai, par amount itna hi hoga.
+    - Itna main de paunga, date pending hai.
+
+- intent: ptp__wants_time_medical_job
+  examples: |
+    - I lost my job; please give me two months.
+    - I recently had surgery; I need more time to pay.
+    - Due to medical expenses, I cannot pay right now.
+    - Because of job loss, I need a few months to stabilize.
+    - I have ongoing hospital bills; payment is not possible now.
+    - Kindly allow time until I find a new job.
+    - Once my employment is settled, I will start payment.
+    - I am under treatment; please grant me some time.
+    - I faced a layoff; I need a grace period.
+    - Medical issues have drained my funds; I need an extension.
+    - I will resume payments after I recover.
+    - I will be able to pay after my employment resumes.
+    - Health bills are high; please allow a deferment.
+    - I am not financially stable due to health/job issues.
+    - Please consider my medical/job situation and extend time.
+    - Meri job chali gayi hai, 2 mahine baad dunga.
+    - Hospital ka kharcha chal raha hai, abhi nahi de paunga.
+    - Job lagte hi payment shuru karunga.
+
+- intent: ptp__wants_time_this_month
+  examples: |
+    - I will manage the payment by month end.
+    - Please give me until the 28th of this month.
+    - Salary is delayed; I will pay within this month.
+    - This month only I will make the payment.
+    - By month end, I will clear the dues.
+    - I will pay by 28th; kindly wait till then.
+    - I need to wait for this month's salary; will pay then.
+    - I will settle within this calendar month.
+    - I will ensure payment before the month closes.
+    - I will make it this month without fail.
+    - The amount will be cleared this month itself.
+    - I will transfer as soon as salary hits this month.
+    - Please allow me till month end to arrange.
+    - I will update you once I pay this month.
+    - Expect the payment within this month.
+    - Month end tak de dunga.
+    - 28 tareekh ko payment pakka.
+    - Issi mahine mein clear kar dunga.
+
+- intent: ptp__wants_time_next_month
+  examples: |
+    - I cannot pay this month; please try me next month.
+    - From next month, I will start paying.
+    - Kindly wait till my next income cycle.
+    - Payment is only possible next month onwards.
+    - I will arrange funds next month and pay.
+    - After one month, I will begin the payments.
+    - Please consider next month for settlement.
+    - I will have funds next month; will clear then.
+    - I can confirm payment from next month.
+    - This month is difficult; next month works.
+    - I will schedule payment for next month.
+    - I will move the payment to next month.
+    - Let us target next month’s salary date.
+    - I will plan repayment starting next month.
+    - I will pay once the next month starts.
+    - Iss month mushkil hai, next month karunga.
+    - Salary next month milegi, tabhi dunga.
+    - Agle mahine se payment shuru karunga.
+
+- intent: ptp__grace_time_granted
+  examples: |
+    - I was told I have a 15-day grace period; why are you calling?
+    - The bank already gave me an extension.
+    - I have extra time as per the bank; please don't rush me.
+    - I received grace time; why follow up so soon?
+    - I know my extension window; I will pay within it.
+    - The grace period is still active; I will pay before it ends.
+    - Kindly respect the extension granted to me.
+    - I have approval for extra days; I will comply.
+    - Please check the note about my grace period.
+    - I’m aware of the allowed time; I’ll settle within that.
+    - The bank’s extension is in effect for me.
+    - I will use the grace period and then pay.
+    - I’m within my extended timeline; don’t press me.
+    - The new due date is as per the extension granted.
+    - Please see the extension email from the bank.
+    - Mujhe 15 din ka grace mila hai, phir bhi call kyun?
+    - Bank ne time extend kiya hai.
+    - Grace period abhi khatam nahi hua hai.
+
+- intent: ptp__how_to_pay
+  examples: |
+    - Please tell me the step-by-step process to pay.
+    - Should I pay via app or website?
+    - Which account should I transfer the money to?
+    - How do I make the payment? Please explain.
+    - Is there a guide for payment I can follow?
+    - Share the payment steps and options available.
+    - Do I need a reference number while paying?
+    - Which method is recommended for quick payment?
+    - Please provide detailed instructions for paying.
+    - Should I use NEFT, IMPS, or UPI?
+    - Where can I see my outstanding amount before paying?
+    - Can you send a screenshot guide for payment?
+    - Is there any charge for online transfer?
+    - Do I need to share proof after payment?
+    - Please confirm the beneficiary details before I transfer.
+    - Payment ka process batao.
+    - App se karna hai ya bank transfer?
+    - Mujhe clear instructions chahiye.
+
+- intent: ptp__wants_to_pay_online
+  examples: |
+    - Send me a UPI or app link so I can pay online.
+    - I will pay using net banking; please share details.
+    - I need an online payment option only.
+    - Please share UPI ID and the exact amount.
+    - I prefer to pay through the mobile app.
+    - Provide the secure payment link for online transfer.
+    - I will do IMPS; share the beneficiary details.
+    - I would like to pay via your website checkout.
+    - Please confirm if payment gateway accepts UPI.
+    - I will transfer through internet banking right away.
+    - Kindly provide any QR code for payment.
+    - I want to avoid cash; online only please.
+    - Share the online portal link to pay directly.
+    - I will pay online and send receipt immediately.
+    - Please enable online payment for this account.
+    - UPI ID bhejo, main pay kar dunga.
+    - Net banking se kar dunga, details bhejo.
+    - Google Pay ya PhonePe link bhejo.
+
+- intent: ptp__wants_offline_option
+  examples: |
+    - I prefer to pay in cash; can you send someone?
+    - Can I go to the branch and pay directly?
+    - I want to hand over the money to your agent.
+    - Please arrange for an executive to collect cash.
+    - I will visit the nearest branch to pay.
+    - I am comfortable paying offline, not online.
+    - Please share branch address and timings.
+    - I would prefer a cash pickup at my location.
+    - Can I deposit cash at your partner branch?
+    - Please confirm if a cash collection is possible.
+    - I will hand over to your field executive.
+    - I don't want to use a link; offline only.
+    - Please share the offline steps clearly.
+    - Can I pay via a bank deposit slip?
+    - Let me know the offline receipt process.
+    - Cash mein dena hai, agent bhejo.
+    - Branch jaake paisa de dunga.
+    - Main offline hi payment karunga.
+
+- intent: ptp__link_not_working
+  examples: |
+    - The payment link is not opening on my phone.
+    - The page shows an error; please send another link.
+    - The link expired; kindly share a new one.
+    - I am getting a technical error while opening the link.
+    - The website is timing out; please check.
+    - The link is broken; it doesn't load at all.
+    - I cannot proceed; the link is not working.
+    - Please verify the link and resend.
+    - The link says invalid session; share a fresh link.
+    - The link opens but payment fails at the last step.
+    - It is showing an error code; please help.
+    - The gateway keeps crashing; send me a different link.
+    - I tried multiple times; the link still fails.
+    - The link doesn't work on my device; any alternative?
+    - Please provide a functioning link urgently.
+    - Link open hi nahi ho raha.
+    - Error aa raha hai, naya link bhejo.
+    - Dusra link bhejo, yeh nahi chal raha.
+
+- intent: ptp__wants_emi_only
+  examples: |
+    - I can't pay in a lump sum; I want only EMI.
+    - Please adjust the plan as EMI from next month.
+    - Restart my EMI schedule instead of full payment.
+    - I prefer to pay monthly instalments, not one-shot.
+    - I am comfortable with EMI; lump sum is difficult.
+    - Let me continue with monthly EMIs only.
+    - Convert my dues into instalments, please.
+    - Please provide a restructured EMI plan.
+    - I cannot pay one-time; monthly is feasible.
+    - I want only EMI going forward.
+    - Please enable auto-debit for EMI.
+    - Share EMI options with tenure and amount.
+    - I can handle smaller monthly payments only.
+    - I will resume EMI if you allow.
+    - Offer me an affordable EMI plan.
+    - Mujhe sirf EMI chahiye, full ek saath nahi.
+    - Agle mahine se EMI continue karo.
+    - Main ek baar mein nahi de sakta, sirf monthly.
+
+- intent: ptp__wants_bank_account
+  examples: |
+    - Please share the direct bank account number for transfer.
+    - I will do NEFT; send account details and IFSC.
+    - I don't trust links; I prefer bank account transfer.
+    - Share beneficiary name, account number, and branch.
+    - I will use IMPS; please confirm the exact account.
+    - Kindly send the official account details on mail.
+    - I will transfer from my bank app; share the details.
+    - Provide account info with the correct reference to use.
+    - Please send the authorised account to avoid mistakes.
+    - I would like to transfer via RTGS; share the info.
+    - Confirm the account title and reference note to add.
+    - I need the bank details instead of payment link.
+    - I will pay only to an official account shared by you.
+    - Please include loan number in the reference format.
+    - Send me the account and IFSC so I can proceed.
+    - Account number bhejo, main direct transfer karunga.
+    - Link pe bharosa nahi hai, account details do.
+    - Direct account transfer easy rahega.
+
+# =========================
+# 3) REFUSE TO PAY
+# =========================
+
+- intent: refuse_to_pay__not_interested
+  examples: |
+    - I am not interested in paying this loan at all.
+    - I do not want to discuss repayment anymore.
+    - Please stop calling; I won’t pay.
+    - I am not willing to pay back this loan.
+    - I don’t care about settlement; I won’t pay.
+    - I have decided not to pay anything.
+    - I refuse to make any payment for this loan.
+    - There is no chance I will pay you.
+    - I have no interest in clearing this account.
+    - Don’t bother, I won’t pay even a single rupee.
+    - I am done with this; no payment from my side.
+    - No need to call, I will never pay.
+    - Forget about this account; I won’t settle.
+    - I don’t want to pay or talk about it.
+    - Payment is not going to happen, stop asking.
+    - Mujhe koi interest nahi hai pay karne ka.
+    - Main paisa nahi dunga, call mat karo.
+    - Don't contact me again; I won’t pay anything.
+    - M nhi dunga
+    - Main paisa nahi de sakti.
+    - I won’t pay even a dime for this loan.
+    - I refuse to make any payment for this debt.
+    - Mujhe fark nahi padta, main settle nahi karunga.
+
+- intent: refuse_to_pay__fraud_claimed
+  examples: |
+    - This is a fraud loan; I never took it.
+    - Somebody used my documents to take this loan.
+    - I was cheated; this is not my loan.
+    - I did not sign any papers for this account.
+    - This loan is fake, I won’t pay.
+    - I have already complained about this fraud.
+    - My identity was misused for this loan.
+    - I will not pay for a loan I didn’t take.
+    - This is not my responsibility; I was scammed.
+    - I never applied for this, so I won’t pay.
+    - This account was opened without my consent.
+    - This is a fraud case; please close it.
+    - I am a victim of fraud; not paying.
+    - I will go to police if you force me.
+    - This is a fraud loan created in my name.
+    - Ye mera loan hi nahi hai, fraud hua hai.
+    - Kisi ne mera ID use karke loan liya hai.
+    - Fraud account hai, paisa nahi dunga.
+    - I never took this loan, it's fraud
+    - Someone stole my identity for this loan
+    - This is not my loan, I was scammed
+    - I never signed for this account
+    - This loan is fraudulent, I won't pay
+    - I reported this fraud already
+    - My documents were misused
+    - I refuse to pay for fraud
+    - This is a scam, not my loan
+    - I never applied for this fraud
+    - This account is fake
+    - I'm a fraud victim
+    - I'll report this to police
+    - This is identity theft
+    - I never authorized this loan
+    - This is a fraudulent account
+    - I was scammed, not paying
+    - This loan is identity theft
+    - I never took this fraud loan
+    - Someone used my name fraudulently
+    - This is a scam loan
+    - I never agreed to this
+    - This is fraud, I won't pay
+    - I was victimized, not responsible
+
+- intent: refuse_to_pay__service_issue
+  examples: |
+    - The bank cheated me; I won’t pay.
+    - I did not get the service I was promised.
+    - I am unhappy with the bank’s service, so I refuse to pay.
+    - The product was faulty; why should I pay?
+    - I will not pay because of poor service.
+    - You gave false commitments; no payment from me.
+    - I didn’t receive the benefits promised.
+    - There was hidden charge; I won’t pay now.
+    - I don’t accept such unfair service.
+    - I will not pay due to wrong commitments.
+    - Service issue is the reason I refuse.
+    - I was cheated with terms; not paying.
+    - I feel the loan was mis-sold to me.
+    - You misled me; I won’t pay.
+    - I am dissatisfied; payment not possible.
+    - Service acchi nahi thi, paisa kyun doon?
+    - Galat commitment diye gaye the.
+    - Mujhe product hi nahi mila, paisa nahi dunga.
+
+- intent: refuse_to_pay__died_or_sick
+  examples: |
+    - The borrower has passed away, we can’t pay.
+    - He died last month, please update your record.
+    - The person you are calling for is dead.
+    - He is no more; please stop calling.
+    - Borrower has expired, no repayment possible.
+    - We cannot pay as the account holder is deceased.
+    - Please close this loan; person has died.
+    - Borrower passed away; stop harassing us.
+    - He is dead, we won’t pay anything.
+    - You are wasting time; borrower has expired.
+    - Payment is not possible after his death.
+    - Please mark this as deceased in your system.
+    - This account cannot be collected; borrower died.
+    - No settlement, person is no more.
+    - Please stop follow-ups, the borrower is dead.
+    - Borrower guzar gaye hain, paisa nahi milega.
+    - Ye account holder mar chuka hai.
+    - Marne ke baad repayment kaise hoga?
+
+- intent: refuse_to_pay__legal_threat
+  examples: |
+    - I will take legal action if you harass me.
+    - Don’t call me again; I will file a complaint.
+    - If you threaten me, I will go to police.
+    - I will sue the bank for harassment.
+    - I will take this matter to court.
+    - I will involve my lawyer if this continues.
+    - Stop calling me or I will complain legally.
+    - I will send a notice to your company.
+    - I will report this to RBI.
+    - I will escalate this to consumer court.
+    - Harassment calls will make me complain.
+    - I am filing a case against the bank.
+    - Any more calls and I’ll go legal.
+    - I am warning you of legal consequences.
+    - I will not tolerate threats, will file case.
+    - Call karna band karo warna police jaunga.
+    - Legal action lunga agar disturb kiya.
+    - Court mein case daal dunga.
+
+# =========================
+# 4) CALL BACK
+# =========================
+
+- intent: call_back__busy
+  examples: |
+    - I am busy right now, please call later.
+    - Not a good time, try again later.
+    - I am in a meeting, can you call later?
+    - Please call back after 6 PM.
+    - I can’t talk right now, call later.
+    - I will talk when I am free, not now.
+    - Call me after office hours.
+    - Please try again tomorrow.
+    - I am travelling, call later.
+    - I can’t talk, please call another time.
+    - Not possible right now, call after some time.
+    - Call later, I am not available.
+    - I will respond later, not now.
+    - Contact me at a better time.
+    - Busy now, call back later.
+    - Abhi busy hoon, baad mein call karo.
+    - Meeting mein hoon, baad mein baat karunga.
+    - Abhi time nahi hai, baad mein call karo.
+
+- intent: call_back__asked_time
+  examples: |
+    - Call me tomorrow at 11 AM.
+    - Please call on Saturday morning.
+    - Call back at 7 PM today.
+    - Talk to me next Monday afternoon.
+    - Please call after lunch tomorrow.
+    - Best time is evening; call me then.
+    - You can call me early morning tomorrow.
+    - Try calling me at 4 PM today.
+    - Call me at 9 AM sharp tomorrow.
+    - I am free next week, call then.
+    - Please call on 25th morning.
+    - I am available after 10 AM tomorrow.
+    - You can talk to me Sunday evening.
+    - Call only on weekdays, not weekends.
+    - Give me a call at 6 in evening.
+    - Kal subah 11 baje call karna.
+    - Shaam 7 baje call karo.
+    - Weekend pe call karna better rahega.
+
+# =========================
+# 5) PAID
+# =========================
+
+- intent: paid__today
+  examples: |
+    - I already paid today morning.
+    - The payment was made just now.
+    - I transferred the money today.
+    - I made the payment this morning.
+    - I completed the payment today itself.
+    - The money was sent today.
+    - I did the transfer today.
+    - Payment has been cleared today.
+    - I settled today.
+    - Amount was paid earlier today.
+    - It is paid today morning.
+    - The dues are cleared today.
+    - Payment went through today itself.
+    - I closed the amount today.
+    - I finished paying today.
+    - Aaj hi paisa bheja hai.
+    - Subah transfer kiya tha.
+    - Aaj payment complete ho gaya.
+
+- intent: paid__yesterday
+  examples: |
+    - I paid yesterday already.
+    - The payment was done yesterday.
+    - Money was transferred yesterday.
+    - I settled the dues yesterday.
+    - Yesterday I cleared the amount.
+    - The transaction happened yesterday.
+    - It was paid yesterday.
+    - I made payment yesterday evening.
+    - The dues were cleared yesterday.
+    - I already paid yesterday.
+    - Yesterday morning I paid.
+    - The account was cleared yesterday.
+    - I finished paying yesterday.
+    - Payment was made yesterday itself.
+    - I closed the loan yesterday.
+    - Kal hi paisa diya hai.
+    - Kal transfer kar diya tha.
+    - Kal hi clear kar diya.
+
+- intent: paid__proof_shared
+  examples: |
+    - I already shared the payment receipt.
+    - I sent the transaction proof by email.
+    - The screenshot of payment was sent.
+    - I gave you the UTR number.
+    - I have already shared payment confirmation.
+    - I sent proof on WhatsApp.
+    - The receipt has been shared with you.
+    - I already gave the payment details.
+    - I forwarded the SMS confirmation.
+    - I shared the proof last night.
+    - You already have the transaction ID.
+    - I emailed the slip yesterday.
+    - I gave the confirmation details.
+    - I sent proof after making payment.
+    - The evidence is already shared.
+    - Maine proof bheja hai.
+    - WhatsApp pe screenshot bheja tha.
+    - Receipt already mail kar diya.
+
+# =========================
+# 6) VEHICLE (Repo cases)
+# =========================
+
+- intent: vehicle__car_sold
+  examples: |
+    - I already sold the car, I don’t have it.
+    - The vehicle was sold long back.
+    - I don’t have this car anymore.
+    - I sold it last year.
+    - The car is not with me, it’s sold.
+    - I already sold the vehicle.
+    - The vehicle is no longer mine.
+    - I don’t own this car anymore.
+    - I transferred the car to someone else.
+    - This car is already sold.
+    - I gave the car to a dealer.
+    - The car is with the new owner.
+    - The vehicle was sold a while ago.
+    - I don’t have the car in my name now.
+    - The car has been disposed.
+    - Gaadi bech chuka hoon.
+    - Car mere paas nahi hai, bik gayi.
+    - Ye car maine sell kar di hai.
+
+- intent: vehicle__car_accident
+  examples: |
+    - The car met with an accident, I don’t have it.
+    - The vehicle was damaged badly in an accident.
+    - The car is in total loss after accident.
+    - Accident destroyed the vehicle.
+    - I don’t have the car due to accident.
+    - The car was scrapped after accident.
+    - The vehicle is unusable after accident.
+    - Accident took away the car.
+    - The car was lost in an accident.
+    - The vehicle is not recoverable after crash.
+    - I no longer have car, it got wrecked.
+    - Accident damaged the car beyond repair.
+    - The car was written off after crash.
+    - It’s gone due to accident.
+    - The car no longer exists after accident.
+    - Gaadi ka accident ho gaya, ab nahi hai.
+    - Accident mein car khatam ho gayi.
+    - Gaadi scrap ho gayi accident ke baad.
+
+- intent: vehicle__car_seized
+  examples: |
+    - The car was seized by the bank.
+    - My vehicle was already taken by bank.
+    - The car has been repossessed.
+    - I don’t have the car, it’s seized.
+    - The bank took the car back.
+    - My car is under bank custody.
+    - The car was picked by repossession team.
+    - I lost the car to bank seizure.
+    - The vehicle is not with me, bank seized it.
+    - The bank took possession of the car.
+    - The car was seized last month.
+    - My vehicle is under bank seizure.
+    - The car was taken away by bank.
+    - It is in bank’s possession now.
+    - I have no car; it was seized.
+    - Bank ne car le li hai.
+    - Gaadi seize ho gayi hai.
+    - Repo team car le gayi.
+
+- intent: vehicle__car_missing
+  examples: |
+    - The car is missing, I can’t find it.
+    - I lost the vehicle, it’s stolen.
+    - Someone stole my car.
+    - The car was stolen last week.
+    - I don’t know where the vehicle is.
+    - The car went missing suddenly.
+    - I reported the car theft to police.
+    - The vehicle is not traceable.
+    - I don’t have the car, it’s gone.
+    - My car disappeared last night.
+    - The car is stolen, I filed FIR.
+    - The vehicle was lost from parking.
+    - Car theft happened recently.
+    - The car was stolen, not with me.
+    - I can’t locate my car anywhere.
+    - Meri car chori ho gayi.
+    - Car missing hai, FIR kar di.
+    - Gaadi gayab ho gayi hai.
+
+# =========================
+# 7) GREETINGS
+# =========================
+
+- intent: loan_status_inquiry
+  examples: |
+    - What is the status of my loan?
+    - How much do I owe on my loan?
+    - What is my outstanding balance?
+    - Can you tell me my loan status?
+    - What is the current status of my account?
+    - How much is left to pay on my loan?
+    - What is my remaining balance?
+    - Can you check my loan status?
+    - What do I owe on my loan?
+    - What is the current balance on my loan?
+    - How much do I need to pay?
+    - What is my loan balance?
+    - Can you tell me how much I owe?
+    - What is the status of my account?
+    - How much is my outstanding amount?
+    - What is my current loan status?
+    - Can you give me my loan details?
+    - What is the remaining amount on my loan?
+    - How much do I still owe?
+    - What is my total outstanding?
+    - Can you check my account status?
+    - What is my loan summary?
+    - How much have I paid so far?
+    - What is my payment status?
+    - Can you tell me my current balance?
+    - What is my loan information?
+    - How much do I need to settle?
+    - What is my account balance?
+    - Can you show me my loan status?
+    - What is my outstanding loan amount?
+    - How much is left on my loan?

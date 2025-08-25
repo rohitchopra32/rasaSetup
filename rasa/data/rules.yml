@@ -1,0 +1,213 @@
+version: "3.1"
+
+rules:
+  - rule: Respond to wants_settlement__plan_accepted
+    steps:
+      - intent: wants_settlement__plan_accepted
+      - action: utter_wants_settlement__plan_accepted
+
+  - rule: Respond to wants_settlement__wants_lower_offer
+    steps:
+      - intent: wants_settlement__wants_lower_offer
+      - action: utter_wants_settlement__wants_lower_offer
+
+  - rule: Respond to wants_settlement__no_plan_discussed
+    steps:
+      - intent: wants_settlement__no_plan_discussed
+      - action: utter_wants_settlement__no_plan_discussed
+
+  - rule: Respond to wants_settlement__old_letter_shown
+    steps:
+      - intent: wants_settlement__old_letter_shown
+      - action: utter_wants_settlement__old_letter_shown
+
+  - rule: Respond to wants_settlement__claims_lower_offer
+    steps:
+      - intent: wants_settlement__claims_lower_offer
+      - action: utter_wants_settlement__claims_lower_offer
+
+  - rule: Respond to wants_settlement__talking_to_bank
+    steps:
+      - intent: wants_settlement__talking_to_bank
+      - action: utter_wants_settlement__talking_to_bank
+
+  - rule: Respond to wants_settlement__wants_multi_shot
+    steps:
+      - intent: wants_settlement__wants_multi_shot
+      - action: utter_wants_settlement__wants_multi_shot
+
+  - rule: Respond to wants_settlement__cant_pay_now
+    steps:
+      - intent: wants_settlement__cant_pay_now
+      - action: utter_wants_settlement__cant_pay_now
+
+  - rule: Respond to wants_settlement__wants_foreclosure
+    steps:
+      - intent: wants_settlement__wants_foreclosure
+      - action: utter_wants_settlement__wants_foreclosure
+
+  - rule: Respond to wants_settlement__wants_letter_noc
+    steps:
+      - intent: wants_settlement__wants_letter_noc
+      - action: utter_wants_settlement__wants_letter_noc
+
+  - rule: Respond to wants_settlement__past_settlement_claimed
+    steps:
+      - intent: wants_settlement__past_settlement_claimed
+      - action: utter_wants_settlement__past_settlement_claimed
+
+  - rule: Respond to ptp__requested_payment_link
+    steps:
+      - intent: ptp__requested_payment_link
+      - action: utter_ptp__requested_payment_link
+
+  - rule: Respond to ptp__paying_today
+    steps:
+      - intent: ptp__paying_today
+      - action: utter_ptp__paying_today
+
+  - rule: Respond to ptp__paying_tomorrow
+    steps:
+      - intent: ptp__paying_tomorrow
+      - action: utter_ptp__paying_tomorrow
+
+  - rule: Respond to ptp__no_amount_shared
+    steps:
+      - intent: ptp__no_amount_shared
+      - action: utter_ptp__no_amount_shared
+
+  - rule: Respond to ptp__no_date_given
+    steps:
+      - intent: ptp__no_date_given
+      - action: utter_ptp__no_date_given
+
+  - rule: Respond to ptp__wants_time_medical_job
+    steps:
+      - intent: ptp__wants_time_medical_job
+      - action: utter_ptp__wants_time_medical_job
+
+  - rule: Respond to ptp__wants_time_this_month
+    steps:
+      - intent: ptp__wants_time_this_month
+      - action: utter_ptp__wants_time_this_month
+
+  - rule: Respond to ptp__wants_time_next_month
+    steps:
+      - intent: ptp__wants_time_next_month
+      - action: utter_ptp__wants_time_next_month
+
+  - rule: Respond to ptp__grace_time_granted
+    steps:
+      - intent: ptp__grace_time_granted
+      - action: utter_ptp__grace_time_granted
+
+  - rule: Respond to ptp__how_to_pay
+    steps:
+      - intent: ptp__how_to_pay
+      - action: utter_ptp__how_to_pay
+
+  - rule: Respond to ptp__wants_to_pay_online
+    steps:
+      - intent: ptp__wants_to_pay_online
+      - action: utter_ptp__wants_to_pay_online
+
+  - rule: Respond to ptp__wants_offline_option
+    steps:
+      - intent: ptp__wants_offline_option
+      - action: utter_ptp__wants_offline_option
+
+  - rule: Respond to ptp__link_not_working
+    steps:
+      - intent: ptp__link_not_working
+      - action: utter_ptp__link_not_working
+
+  - rule: Respond to ptp__wants_emi_only
+    steps:
+      - intent: ptp__wants_emi_only
+      - action: utter_ptp__wants_emi_only
+
+  - rule: Respond to ptp__wants_bank_account
+    steps:
+      - intent: ptp__wants_bank_account
+      - action: utter_ptp__wants_bank_account
+
+  - rule: Respond to refuse_to_pay__not_interested
+    steps:
+      - intent: refuse_to_pay__not_interested
+      - action: utter_refuse_to_pay__not_interested
+
+  - rule: Respond to refuse_to_pay__fraud_claimed
+    steps:
+      - intent: refuse_to_pay__fraud_claimed
+      - action: utter_refuse_to_pay__fraud_claimed
+
+  - rule: Respond to refuse_to_pay__service_issue
+    steps:
+      - intent: refuse_to_pay__service_issue
+      - action: utter_refuse_to_pay__service_issue
+
+  - rule: Respond to refuse_to_pay__died_or_sick
+    steps:
+      - intent: refuse_to_pay__died_or_sick
+      - action: utter_refuse_to_pay__died_or_sick
+
+  - rule: Respond to refuse_to_pay__legal_threat
+    steps:
+      - intent: refuse_to_pay__legal_threat
+      - action: utter_refuse_to_pay__legal_threat
+
+  - rule: Respond to call_back__busy
+    steps:
+      - intent: call_back__busy
+      - action: utter_call_back__busy
+
+  - rule: Respond to call_back__asked_time
+    steps:
+      - intent: call_back__asked_time
+      - action: utter_call_back__asked_time
+
+  - rule: Respond to paid__today
+    steps:
+      - intent: paid__today
+      - action: utter_paid__today
+
+  - rule: Respond to paid__yesterday
+    steps:
+      - intent: paid__yesterday
+      - action: utter_paid__yesterday
+
+  - rule: Respond to paid__proof_shared
+    steps:
+      - intent: paid__proof_shared
+      - action: utter_paid__proof_shared
+
+  - rule: Respond to vehicle__car_sold
+    steps:
+      - intent: vehicle__car_sold
+      - action: utter_vehicle__car_sold
+
+  - rule: Respond to vehicle__car_accident
+    steps:
+      - intent: vehicle__car_accident
+      - action: utter_vehicle__car_accident
+
+  - rule: Respond to vehicle__car_seized
+    steps:
+      - intent: vehicle__car_seized
+      - action: utter_vehicle__car_seized
+
+  - rule: Respond to vehicle__car_missing
+    steps:
+      - intent: vehicle__car_missing
+      - action: utter_vehicle__car_missing
+
+  - rule: Respond to loan status inquiry
+    steps:
+      - intent: loan_status_inquiry
+      - action: utter_loan_status_inquiry
+
+  - rule: NLU low-confidence fallback to LLM
+    steps:
+      - intent: nlu_fallback
+      - action: action_llm_fallback
+

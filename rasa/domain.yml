@@ -1,0 +1,140 @@
+version: "3.1"
+
+
+intents:
+  - nlu_fallback
+  - loan_status_inquiry
+  - wants_settlement__plan_accepted
+  - wants_settlement__wants_lower_offer
+  - wants_settlement__no_plan_discussed
+  - wants_settlement__old_letter_shown
+  - wants_settlement__claims_lower_offer
+  - wants_settlement__talking_to_bank
+  - wants_settlement__wants_multi_shot
+  - wants_settlement__cant_pay_now
+  - wants_settlement__wants_foreclosure
+  - wants_settlement__wants_letter_noc
+  - wants_settlement__past_settlement_claimed
+  - ptp__requested_payment_link
+  - ptp__paying_today
+  - ptp__paying_tomorrow
+  - ptp__no_amount_shared
+  - ptp__no_date_given
+  - ptp__wants_time_medical_job
+  - ptp__wants_time_this_month
+  - ptp__wants_time_next_month
+  - ptp__grace_time_granted
+  - ptp__how_to_pay
+  - ptp__wants_to_pay_online
+  - ptp__wants_offline_option
+  - ptp__link_not_working
+  - ptp__wants_emi_only
+  - ptp__wants_bank_account
+  - refuse_to_pay__not_interested
+  - refuse_to_pay__fraud_claimed
+  - refuse_to_pay__service_issue
+  - refuse_to_pay__died_or_sick
+  - refuse_to_pay__legal_threat
+  - call_back__busy
+  - call_back__asked_time
+  - paid__today
+  - paid__yesterday
+  - paid__proof_shared
+  - vehicle__car_sold
+  - vehicle__car_accident
+  - vehicle__car_seized
+  - vehicle__car_missing
+
+responses:
+  utter_wants_settlement__plan_accepted:
+    - text: "Since you have shown seriousness and requested for a settlement, we have secured an OTS offer for you. The offer is valid for the next 24 hours only. Kindly confirm if you have the arrangement of funds. You are expected to make the payment immediately and close the matter. Failure to pay within the stipulated time will lead to withdrawal of the settlement offer and initiation of strict legal action."
+  utter_wants_settlement__wants_lower_offer:
+    - text: "You had requested for a settlement and we have already conveyed the approved amount. This is a one-time offer given strictly on exception. There is no scope for renegotiation. You are expected to arrange the said amount and make the payment without delay. If you are unwilling to proceed on these terms, the account will revert to regular recovery proceedings without further notice."
+  utter_wants_settlement__no_plan_discussed:
+    - text: "If you are opting for settlement, you must keep the payment ready and pay the full settlement amount of ₹_______ in one go. The payment has to be made today. Please note, only upon receipt of the full settlement amount, the matter will be treated as closed and any further legal proceedings shall be withdrawn."
+  utter_wants_settlement__old_letter_shown:
+    - text: "The old settlement letter you’re referring to is no longer valid. Referring to an expired offer clearly shows a lack of seriousness in resolving the matter. We will not entertain repeated settlement requests. You are now required to pay the full outstanding amount immediately. Do not waste time asking for settlement again, as the option is no longer on the table."
+  utter_wants_settlement__claims_lower_offer:
+    - text: "If someone else offered you a lower settlement, you should have settled it with them at that time. There is no point discussing past offers now. Unless you have a valid settlement letter dated today from the company, we are not authorised to entertain any renegotiation. Kindly refrain from wasting time and confirm if you are ready to pay as per the current terms."
+  utter_wants_settlement__talking_to_bank:
+    - text: "You cannot negotiate directly with the bank at this stage as the case has been officially assigned to the legal team. Even if any discussion happens, final payment confirmation must come to us for the matter to be closed. Kindly avoid parallel communication and inform us immediately if you are arranging payment."
+  utter_wants_settlement__wants_multi_shot:
+    - text: "Multi-shot settlement has been approved with a strict condition — only 10 days are allowed between the two instalments. You must confirm your acceptance of this timeline immediately. Failure to adhere to the schedule will result in automatic cancellation of the settlement, and the full outstanding amount will become payable without any further discussion."
+    - text: "Multi-shot settlement is not available. You have already been given enough time to arrange the payment. The company has still shown consideration by keeping the settlement option open, but this will not continue indefinitely. You must make the full payment now, or the offer will be withdrawn permanently."
+  utter_wants_settlement__cant_pay_now:
+    - text: "If you truly want to settle, don’t waste time — arrange the funds. This is your final opportunity to close the matter on a settlement basis. Take it seriously. If you cannot pay within the given 24 hours, the offer will lapse and no further requests will be entertained."
+  utter_wants_settlement__wants_foreclosure:
+    - text: "If you are opting for foreclosure, you must pay the total outstanding amount of ₹_____. Please note, once the full payment is made, the account will be reported as closed without default, and your CIBIL score will not be negatively impacted. Kindly confirm your intent and arrange for immediate payment."
+  utter_wants_settlement__wants_letter_noc:
+    - text: "You have to connect with {Client_name} regarding the same. We are only concerned with regards to your legal case."
+  utter_wants_settlement__past_settlement_claimed:
+    - text: "This is an old settlement letter. It seems you did not complete payment of all installments as per the conditions of this letter. Hence your old letter & settlement offer has now become invalid. You are now required to pay your full amount today"
+  utter_ptp__requested_payment_link:
+    - text: "Payment link will be shared with you or you can make the payment in the app wherein settlement amount is updated."
+  utter_ptp__paying_today:
+    - text: "As per your promise, you are expected to make the payment by 7 PM today. Kindly share the payment confirmation along with the screenshot immediately after the transaction. If the payment is not received by the said time, recovery action will continue without any further notice."
+  utter_ptp__paying_tomorrow:
+    - text: "We can wait only until tomorrow — no extensions will be given beyond that. Enough time and cooperation have already been extended. You must take this matter seriously and ensure there is no further delay. Failure to pay by tomorrow will lead to immediate recovery action."
+  utter_ptp__no_amount_shared:
+    - text: "You are required to pay the full outstanding amount and no part payments will be accepted. You must strictly adhere to the date you have committed. Any deviation will result in immediate recovery action without further communication."
+  utter_ptp__no_date_given:
+    - text: "Mentioning the amount without a definite date shows a lack of seriousness. You've already missed previous commitments and this cannot continue. You are expected to clear the dues without further delay. Either resolve this now or face unavoidable recovery proceedings."
+  utter_ptp__wants_time_medical_job:
+    - text: "We understand your situation, but the matter is now with the legal team, and no further extensions can be granted. You have already been given enough time to resolve this. You are advised to arrange funds through your family and close the matter immediately. Continued delay will lead to strict legal consequences, and unfortunately, your family may also be impacted due to your default. Take this seriously and act without delay."
+  utter_ptp__wants_time_this_month:
+    - text: "We have already given you enough time and shown full cooperation. Now, no further extensions will be granted beyond tomorrow. You are required to make the full payment by tomorrow, without fail. This is your last opportunity and beyond this, the matter will be escalated and his family will be called for payment."
+  utter_ptp__wants_time_next_month:
+    - text: "You are now asking for time beyond this month despite already being given multiple chances. This clearly shows you are not serious about resolving the matter. Let this serve as a final warning; you should know that taking a loan without the intention or ability to repay constitutes financial misconduct and can amount to criminal breach of trust under law."
+  utter_ptp__grace_time_granted:
+    - text: "You may have been given time earlier, but that was before the matter escalated. The legal team is now involved, and strict legal action is being initiated against you. Be informed that this case may now proceed to court proceedings, and the recovery team is already preparing to visit your residence. You are advised to arrange payment immediately to avoid further consequences."
+  utter_ptp__how_to_pay:
+    - text: "Make payment on the app or on the payment link shared with you."
+  utter_ptp__wants_to_pay_online:
+    - text: "You can make the payment on the app. Confirm once you have made the payment."
+  utter_ptp__wants_offline_option:
+    - text: "You have to make the payment in the app or through the payment link as there is no other option available right now."
+  utter_ptp__link_not_working:
+    - text: "Payment link is working fine. You can try and make the payment on the app as well."
+  utter_ptp__wants_emi_only:
+    - text: "You can pay the EMI now but the remaining outstanding amount is to be paid within 3 days. You can make the payment on the same payment option to pay EMI. Here is the payment link"
+  utter_ptp__wants_bank_account:
+    - text: "Payment can be made in the app or directly to the customer branch office. We can only help you with payment link which is already made available to you."
+  utter_refuse_to_pay__not_interested:
+    - text: "Your outright refusal to pay is a serious offence and will not be taken lightly. You cannot simply walk away from your legal and financial obligations. Be advised that your conduct amounts to willful default, and we are initiating legal proceedings, including but not limited to civil recovery, criminal complaint for cheating and breach of trust, and reporting to credit bureaus, which will severely impact your creditworthiness. You are now fully liable for all consequences, including court action, asset attachment, and recovery at your residence. This is your final warning."
+  utter_refuse_to_pay__fraud_claimed:
+    - text: "Even if you claim someone else took the loan, the records show you as the borrower. This default stays in your name, and you must cooperate immediately."
+  utter_refuse_to_pay__died_or_sick:
+    - text: "If you are claiming that the borrower is deceased, you are required to immediately provide valid proof, such as the death certificate, and visit the concerned branch of the bank to initiate the process for closure. Until proper documentation is submitted and verified, the liability continues to exist. Failure to complete the formalities will result in recovery action, and the person communicating on behalf of the borrower may also be held liable for non-compliance."
+  utter_paid__today:
+    - text: "Thank you for informing us about the payment. Kindly share the payment screenshot or valid receipt at the earliest. We will verify the transaction with the bank. Please note, until proper proof of payment is received and confirmed, the recovery and legal process will not be halted. Timely submission of the receipt is essential to avoid further action."
+  utter_paid__yesterday:
+    - text: "Thank you for informing us about the payment. Kindly share the payment screenshot or valid receipt at the earliest. We will verify the transaction with the bank. Please note, until proper proof of payment is received and confirmed, the recovery and legal process will not be halted. Timely submission of the receipt is essential to avoid further action."
+  utter_paid__proof_shared:
+    - text: "Thank you for sharing the payment screenshot / receipt. We’ll check with the bank and confirm and take appropriate steps. Once confirmed, we will withdraw this case."
+  utter_refuse_to_pay__service_issue:
+    - text: "Service-related concerns can be taken up with the bank's grievance team; however, your repayment obligation remains unchanged. Please arrange payment immediately to stop further interest/penalties and recovery action."
+  utter_refuse_to_pay__legal_threat:
+    - text: "You are free to pursue any legal remedy. This is a lawful recovery process and does not suspend your repayment obligation. Kindly clear the dues immediately to avoid further escalation."
+  utter_call_back__busy:
+    - text: "Noted. Share a convenient time today and we will call you back, or you may complete the payment on the link/app in the meantime."
+  utter_call_back__asked_time:
+    - text: "Acknowledged. We will call you back at the requested time. Please keep the payment ready to close the matter on the call."
+  utter_vehicle__car_sold:
+    - text: "Selling the financed vehicle without loan closure does not extinguish your liability. Share buyer/transfer documents and clear the outstanding immediately to regularize the account."
+  utter_vehicle__car_accident:
+    - text: "If the vehicle is a total loss, file/submit the insurance claim, FIR and surveyor report. Until claim proceeds are received and adjusted, the outstanding remains payable; please coordinate payment."
+  utter_vehicle__car_seized:
+    - text: "The vehicle is under bank custody. Visit the branch to complete surrender formalities and clear dues (including repossession charges) to close the account or seek a settlement if eligible."
+  utter_vehicle__car_missing:
+    - text: "Please lodge an FIR for theft and initiate an insurance claim. Share the documents with us. Until the claim is settled, the outstanding remains payable; cooperate to resolve at the earliest."
+  utter_loan_status_inquiry:
+    - text: "I can help you with your loan status. To get accurate information about your outstanding balance and payment details, please provide your loan account number or registered mobile number. Alternatively, you can check your loan status through our mobile app or visit your nearest branch."
+
+actions:
+  - action_llm_fallback
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
